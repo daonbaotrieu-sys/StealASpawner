@@ -1,0 +1,36 @@
+name: StealASpawner
+main: net.lifesteal.stealaspawner.StealASpawnerPlugin
+version: '${project.version}'
+api-version: '1.21'
+author: StealASpawner
+description: Lifesteal-SMP style spawner economy - steal spawners, upgrade them, farm passive income.
+
+softdepend: [Vault, PlaceholderAPI, WorldGuard, GriefPrevention]
+
+commands:
+  spawnershop:
+    description: Open the spawner shop.
+    usage: /spawnershop
+    permission: stealaspawner.use
+  spawner:
+    description: Inspect, upgrade, trust and rank spawners.
+    usage: /spawner <info|upgrade|top|trust>
+    permission: stealaspawner.use
+  sas:
+    description: StealASpawner admin command.
+    usage: /sas <reload>
+    permission: stealaspawner.admin
+
+permissions:
+  stealaspawner.use:
+    description: Use the base StealASpawner commands.
+    default: true
+  stealaspawner.steal:
+    description: Allowed to steal other players' placed spawners.
+    default: true
+  stealaspawner.upgrade:
+    description: Allowed to spend money upgrading spawners.
+    default: true
+  stealaspawner.admin:
+    description: Reload config and bypass the steal grace period.
+    default: op
