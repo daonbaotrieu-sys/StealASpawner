@@ -155,10 +155,6 @@
                                     <pattern>com.zaxxer.hikari</pattern>
                                     <shadedPattern>net.lifesteal.stealaspawner.libs.hikari</shadedPattern>
                                 </relocation>
-                                <relocation>
-                                    <pattern>org.sqlite</pattern>
-                                    <shadedPattern>net.lifesteal.stealaspawner.libs.sqlite</shadedPattern>
-                                </relocation>
                             </relocations>
                             <filters>
                                 <filter>
