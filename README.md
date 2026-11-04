@@ -19,6 +19,22 @@ Output: `target/StealASpawner-1.0.0.jar`. HikariCP và sqlite-jdbc được
 shade + relocate vào trong jar (xem `<relocations>` trong `pom.xml`), nên
 bạn chỉ cần copy đúng 1 file jar này vào thư mục `plugins/` của server.
 
+## Build không cần cài gì (GitHub Actions)
+
+Project này kèm sẵn `.github/workflows/build.yml` — tự build jar trên máy
+chủ của GitHub, bạn không cần cài JDK/Maven trên máy mình:
+
+1. Vào github.com, bấm **New repository** (public hay private đều được),
+   đặt tên gì cũng được, tạo repo trống.
+2. Vào tab **Add file → Upload files**, kéo thả *toàn bộ nội dung bên
+   trong* thư mục đã giải nén (pom.xml, README.md, thư mục `src/`, thư mục
+   `.github/`) vào, rồi **Commit changes**.
+3. Vào tab **Actions** của repo — workflow "Build plugin jar" sẽ tự chạy
+   (mất khoảng 1-2 phút).
+4. Khi chạy xong (dấu tích xanh), bấm vào lần chạy đó → kéo xuống mục
+   **Artifacts** → tải file `StealASpawner-jar.zip` → giải nén ra sẽ thấy
+   `StealASpawner-1.0.0.jar`, đó là file plugin thật sự.
+
 ## Cài đặt
 
 1. Copy `StealASpawner-1.0.0.jar` vào `plugins/`.

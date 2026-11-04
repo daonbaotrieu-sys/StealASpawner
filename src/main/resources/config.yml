@@ -176,4 +176,6 @@ messages:
   upgrade-success: "<green>Đã nâng <white><track><green> lên level <white><level><green> (-<white><cost><green>)."
   max-level-reached: "<yellow>Track này đã đạt level tối đa (<white><max><yellow>)."
   trust-added: "<green>Đã trust <white><player><green>. Người này có thể lấy spawner của bạn mà không bị tính là trộm."
+  merge-success: "<green>✦ Đã gộp lồng! <white>Speed <speed> | Yield <yield> | Capacity <capacity>"
+  merge-wrong-type: "<red>Lồng cầm trên tay khác loại quái, không thể gộp."
   no-economy: "<red>Server chưa cài Vault + plugin economy, chức năng kinh tế bị vô hiệu hoá."

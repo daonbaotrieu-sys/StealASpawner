@@ -200,6 +200,29 @@ public final class SpawnerManager {
         }
     }
 
+    /**
+     * Merges a held spawner item's levels directly into a placed spawner's
+     * 3 tracks (Shift+right-click with a matching-type item in hand) -
+     * an alternative, cost-free upgrade path that spends the item itself
+     * instead of currency. Adds, rather than overwrites, so merging a
+     * higher-level item (e.g. one recovered via steal) contributes its
+     * full levels rather than a flat +1.
+     */
+    public void applyMerge(SpawnerData data, int addSpeed, int addYield, int addCapacity) {
+        data.setLevel(SpawnerData.Track.SPEED, Math.min(config.maxLevel, data.levelSpeed() + addSpeed));
+        data.setLevel(SpawnerData.Track.YIELD, Math.min(config.maxLevel, data.levelYield() + addYield));
+        data.setLevel(SpawnerData.Track.CAPACITY, Math.min(config.maxLevel, data.levelCapacity() + addCapacity));
+        saveAsync(data);
+
+        World world = Bukkit.getWorld(data.key().world());
+        if (world != null) {
+            Location loc = new Location(world, data.key().x(), data.key().y(), data.key().z());
+            if (world.isChunkLoaded(loc.getBlockX() >> 4, loc.getBlockZ() >> 4)) {
+                applyToBlock(data, loc.getBlock());
+            }
+        }
+    }
+
     private SasConfig.Track trackConfig(SpawnerData.Track track) {
         return switch (track) {
             case SPEED -> config.speed;

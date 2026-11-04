@@ -34,7 +34,10 @@ public final class SpawnerItemFactory {
                         .append(Component.text(prettyName(type), NamedTextColor.WHITE))
                         .decoration(TextDecoration.ITALIC, false),
                 Component.text("Speed " + levelSpeed + " | Yield " + levelYield + " | Capacity " + levelCapacity,
-                        NamedTextColor.DARK_GRAY).decoration(TextDecoration.ITALIC, false)
+                        NamedTextColor.DARK_GRAY).decoration(TextDecoration.ITALIC, false),
+                Component.empty(),
+                Component.text("▸ Đặt xuống: tạo spawner mới", NamedTextColor.YELLOW).decoration(TextDecoration.ITALIC, false),
+                Component.text("▸ Shift+Click phải vào spawner cùng loại: Gộp lồng", NamedTextColor.YELLOW).decoration(TextDecoration.ITALIC, false)
         ));
 
         var pdc = meta.getPersistentDataContainer();

@@ -150,6 +150,13 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <!-- sqlite-jdbc is deliberately NOT relocated here: it extracts a
+                                 native .so/.dll at runtime from a path derived from its own
+                                 package name, and relocating org.sqlite breaks that lookup
+                                 (the loader goes looking under the new package path while the
+                                 native binary resource stays where it was). Leaving it
+                                 unrelocated is safe in practice - very few other plugins shade
+                                 their own copy of sqlite-jdbc. -->
                             <relocations>
                                 <relocation>
                                     <pattern>com.zaxxer.hikari</pattern>
